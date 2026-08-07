@@ -1,20 +1,137 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.titulo}>Victory Store</Text>
+
+      <Text style={styles.subtitulo}>
+        Moda Masculina e Feminina
+      </Text>
+
+      <View style={styles.card}>
+        <Image
+          source={{
+            uri: "https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg",
+          }}
+          style={styles.imagem}
+        />
+
+        <Text style={styles.nome}>Camiseta Oversized</Text>
+        <Text style={styles.preco}>R$ 79,90</Text>
+
+        <TouchableOpacity style={styles.botao}>
+          <Text style={styles.textoBotao}>Comprar</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.card}>
+        <Image
+          source={{
+            uri: "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg",
+          }}
+          style={styles.imagem}
+        />
+
+        <Text style={styles.nome}>Moletom Premium</Text>
+        <Text style={styles.preco}>R$ 149,90</Text>
+
+        <TouchableOpacity style={styles.botao}>
+          <Text style={styles.textoBotao}>Comprar</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.card}>
+        <Image
+          source={{
+            uri: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
+          }}
+          style={styles.imagem}
+        />
+
+        <Text style={styles.nome}>Tênis Casual</Text>
+        <Text style={styles.preco}>R$ 229,90</Text>
+
+        <TouchableOpacity style={styles.botao}>
+          <Text style={styles.textoBotao}>Comprar</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexGrow: 1,
+    backgroundColor: "#f5f5f5",
+    padding: 20,
+  },
+
+  titulo: {
+    fontSize: 32,
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "#6A0DAD",
+    marginTop: 20,
+    marginBottom: 10,
+  },
+
+  subtitulo: {
+    textAlign: "center",
+    marginBottom: 25,
+    color: "#666",
+    fontSize: 18,
+  },
+
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 15,
+    padding: 15,
+    marginBottom: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+
+  imagem: {
+    width: "100%",
+    height: 220,
+    borderRadius: 10,
+    resizeMode: "cover",
+  },
+
+  nome: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+
+  preco: {
+    color: "#6A0DAD",
+    fontSize: 20,
+    marginVertical: 10,
+    fontWeight: "bold",
+  },
+
+  botao: {
+    backgroundColor: "#6A0DAD",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+
+  textoBotao: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
