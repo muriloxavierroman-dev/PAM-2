@@ -20,13 +20,12 @@ export default function App() {
       <View style={styles.card}>
         <Image
           source={{
-            uri: "https://picsum.photos/400/300?random=1",
+            uri: "https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg",
           }}
           style={styles.imagem}
         />
 
         <Text style={styles.nome}>Camiseta Oversized</Text>
-
         <Text style={styles.preco}>R$ 79,90</Text>
 
         <TouchableOpacity style={styles.botao}>
@@ -37,13 +36,12 @@ export default function App() {
       <View style={styles.card}>
         <Image
           source={{
-            uri: "https://picsum.photos/400/300?random=2",
+            uri: "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg",
           }}
           style={styles.imagem}
         />
 
         <Text style={styles.nome}>Moletom Premium</Text>
-
         <Text style={styles.preco}>R$ 149,90</Text>
 
         <TouchableOpacity style={styles.botao}>
@@ -54,13 +52,12 @@ export default function App() {
       <View style={styles.card}>
         <Image
           source={{
-            uri: "https://picsum.photos/400/300?random=3",
+            uri: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
           }}
           style={styles.imagem}
         />
 
         <Text style={styles.nome}>Tênis Casual</Text>
-
         <Text style={styles.preco}>R$ 229,90</Text>
 
         <TouchableOpacity style={styles.botao}>
@@ -109,6 +106,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 220,
     borderRadius: 10,
+    resizeMode: "cover",
   },
 
   nome: {
