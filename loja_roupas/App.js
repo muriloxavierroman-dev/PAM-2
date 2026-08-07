@@ -24,7 +24,9 @@ export default function App() {
           }}
           style={styles.imagem}
         />
+
         <Text style={styles.nome}>Camiseta Oversized</Text>
+
         <Text style={styles.preco}>R$ 79,90</Text>
 
         <TouchableOpacity style={styles.botao}>
@@ -39,7 +41,9 @@ export default function App() {
           }}
           style={styles.imagem}
         />
+
         <Text style={styles.nome}>Moletom Premium</Text>
+
         <Text style={styles.preco}>R$ 149,90</Text>
 
         <TouchableOpacity style={styles.botao}>
@@ -54,7 +58,9 @@ export default function App() {
           }}
           style={styles.imagem}
         />
+
         <Text style={styles.nome}>Tênis Casual</Text>
+
         <Text style={styles.preco}>R$ 229,90</Text>
 
         <TouchableOpacity style={styles.botao}>
@@ -78,6 +84,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#6A0DAD",
     marginTop: 20,
+    marginBottom: 10,
   },
 
   subtitulo: {
