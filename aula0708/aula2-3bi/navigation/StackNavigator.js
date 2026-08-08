@@ -13,10 +13,15 @@ export default function StackNavigator(){
           component={Login}
           />
 
-          <stack.Screen
-            name="Home"
-            component={Home}
-            />
+         <stack.Screen
+          name="Cadastrar"
+          component={cadastrar}
+          />
+
+         <stack.Screen
+          name="Home"
+          component={Home}
+          />
 
       </Stack.Navigator>
     </NavigatuinContainer>

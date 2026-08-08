@@ -6,27 +6,46 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
-export default function Login({ navigation }) {
+export default function Cadastro({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
+    >
 
       <View style={styles.card}>
 
         <Image
           source={{
-            uri: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=500',
+            uri: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500',
           }}
           style={styles.logo}
         />
 
-        <Text style={styles.titulo}>VESTE</Text>
-        <Text style={styles.subtitulo}>
-          Seu estilo começa aqui
+        <Text style={styles.titulo}>
+          Criar conta
         </Text>
 
-        <Text style={styles.label}>E-mail</Text>
+        <Text style={styles.subtitulo}>
+          Faça parte da nossa loja
+        </Text>
+
+        <Text style={styles.label}>
+          Nome completo
+        </Text>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Digite seu nome"
+          placeholderTextColor="#999"
+        />
+
+        <Text style={styles.label}>
+          E-mail
+        </Text>
 
         <TextInput
           style={styles.input}
@@ -36,7 +55,9 @@ export default function Login({ navigation }) {
           autoCapitalize="none"
         />
 
-        <Text style={styles.label}>Senha</Text>
+        <Text style={styles.label}>
+          Senha
+        </Text>
 
         <TextInput
           style={styles.input}
@@ -45,42 +66,47 @@ export default function Login({ navigation }) {
           secureTextEntry
         />
 
-        <TouchableOpacity>
-          <Text style={styles.esqueci}>
-            Esqueci minha senha
-          </Text>
-        </TouchableOpacity>
+        <Text style={styles.label}>
+          Confirmar senha
+        </Text>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Confirme sua senha"
+          placeholderTextColor="#999"
+          secureTextEntry
+        />
 
         <TouchableOpacity
           style={styles.botao}
           onPress={() => navigation.navigate('Home')}
         >
           <Text style={styles.textoBotao}>
-            ENTRAR
+            CRIAR CONTA
           </Text>
         </TouchableOpacity>
 
         <Text style={styles.conta}>
-          Ainda não possui uma conta?
+          Já possui uma conta?
         </Text>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('Cadastro')}
+          onPress={() => navigation.navigate('Login')}
         >
-          <Text style={styles.cadastro}>
-            Criar uma conta
+          <Text style={styles.login}>
+            Entrar
           </Text>
         </TouchableOpacity>
 
       </View>
 
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#F7F4FA',
     justifyContent: 'center',
     padding: 22,
@@ -97,26 +123,25 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 85,
-    height: 85,
-    borderRadius: 45,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     alignSelf: 'center',
     marginBottom: 12,
   },
 
   titulo: {
-    fontSize: 32,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#5B2A86',
     textAlign: 'center',
-    letterSpacing: 3,
   },
 
   subtitulo: {
-    color: '#888',
     textAlign: 'center',
-    marginBottom: 28,
+    color: '#888',
     marginTop: 5,
+    marginBottom: 27,
   },
 
   label: {
@@ -136,39 +161,32 @@ const styles = StyleSheet.create({
     marginBottom: 17,
   },
 
-  esqueci: {
-    color: '#C65A91',
-    textAlign: 'right',
-    fontWeight: '600',
-    marginBottom: 22,
-  },
-
   botao: {
     height: 55,
     backgroundColor: '#6A3D91',
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 5,
     marginBottom: 20,
   },
 
   textoBotao: {
     color: '#FFFFFF',
-    fontSize: 16,
     fontWeight: 'bold',
+    fontSize: 16,
     letterSpacing: 1,
   },
 
   conta: {
-    color: '#777',
     textAlign: 'center',
-    marginBottom: 5,
+    color: '#777',
   },
 
-  cadastro: {
-    color: '#C65A91',
+  login: {
     textAlign: 'center',
+    color: '#C65A91',
     fontWeight: 'bold',
-    fontSize: 15,
+    marginTop: 5,
   },
 });
