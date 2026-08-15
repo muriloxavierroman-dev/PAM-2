@@ -67,7 +67,7 @@ export default function Login({ navigation }) {
         <TouchableOpacity
           onPress={() => navigation.navigate('Cadastro')}
         >
-          <Text style={styles.cadastro}>
+          <Text style={styles.cadastrar}>
             Criar uma conta
           </Text>
         </TouchableOpacity>
