@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-natigation/native-stack';
 
 import Login from '../screens/Login';
 import Home from '../screens/Home';
-import Cadastro from '../screens/Cadastrar';
+import Cadastrar from '../screens/Cadastrar';
 
 const stack = createNativeStackNavigator();
 
