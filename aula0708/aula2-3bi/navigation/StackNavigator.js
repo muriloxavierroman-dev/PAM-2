@@ -17,12 +17,12 @@ export default function StackNavigator(){
           component={Login}
           />
 
-         <stack.Screen
+         <Stack.Screen
           name="Cadastrar"
           component={cadastrar}
           />
 
-         <stack.Screen
+         <Stack.Screen
           name="Home"
           component={Home}
           />
