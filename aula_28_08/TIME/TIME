@@ -1,0 +1,497 @@
+import React from 'react';
+
+import {
+  SafeAreaView,
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Linking,
+  StyleSheet,
+  StatusBar
+} from 'react-native';
+
+export default function App() {
+
+  const jogadores = [
+    {
+      id: '1',
+      nome: 'Thibaut Courtois',
+      numero: '1',
+      posicao: 'Goleiro',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Thibaut_Courtois'
+    },
+    {
+      id: '2',
+      nome: 'Dani Carvajal',
+      numero: '2',
+      posicao: 'Lateral-direito',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Dani_Carvajal'
+    },
+    {
+      id: '3',
+      nome: 'Éder Militão',
+      numero: '3',
+      posicao: 'Zagueiro',
+      wikipedia: 'https://pt.wikipedia.org/wiki/%C3%89der_Milit%C3%A3o'
+    },
+    {
+      id: '4',
+      nome: 'David Alaba',
+      numero: '4',
+      posicao: 'Zagueiro',
+      wikipedia: 'https://pt.wikipedia.org/wiki/David_Alaba'
+    },
+    {
+      id: '5',
+      nome: 'Antonio Rüdiger',
+      numero: '22',
+      posicao: 'Zagueiro',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Antonio_R%C3%BCdiger'
+    },
+    {
+      id: '6',
+      nome: 'Jude Bellingham',
+      numero: '5',
+      posicao: 'Meio-campista',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Jude_Bellingham'
+    },
+    {
+      id: '7',
+      nome: 'Eduardo Camavinga',
+      numero: '6',
+      posicao: 'Meio-campista',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Eduardo_Camavinga'
+    },
+    {
+      id: '8',
+      nome: 'Federico Valverde',
+      numero: '8',
+      posicao: 'Meio-campista',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Federico_Valverde'
+    },
+    {
+      id: '9',
+      nome: 'Vinícius Júnior',
+      numero: '7',
+      posicao: 'Atacante',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Vin%C3%ADcius_J%C3%BAnior'
+    },
+    {
+      id: '10',
+      nome: 'Kylian Mbappé',
+      numero: '9',
+      posicao: 'Atacante',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Kylian_Mbapp%C3%A9'
+    },
+    {
+      id: '11',
+      nome: 'Rodrygo',
+      numero: '11',
+      posicao: 'Atacante',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Rodrygo'
+    },
+    {
+      id: '12',
+      nome: 'Brahim Díaz',
+      numero: '21',
+      posicao: 'Meio-campista',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Brahim_D%C3%ADaz'
+    },
+    {
+      id: '13',
+      nome: 'Endrick',
+      numero: '16',
+      posicao: 'Atacante',
+      wikipedia: 'https://pt.wikipedia.org/wiki/Endrick'
+    }
+  ];
+
+  // Abre a página da Wikipédia do Real Madrid
+  const abrirRealMadrid = () => {
+    Linking.openURL(
+      'https://pt.wikipedia.org/wiki/Real_Madrid_Club_de_F%C3%BAtbol'
+    );
+  };
+
+  // Abre a página da Wikipédia do jogador
+  const abrirJogador = (url) => {
+    Linking.openURL(url);
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="#F7F7F7"
+      />
+
+      {/* CABEÇALHO */}
+
+      <TouchableOpacity
+        style={styles.cabecalho}
+        onPress={abrirRealMadrid}
+        activeOpacity={0.8}
+      >
+
+        <View style={styles.linhaSuperior}>
+          <View style={styles.logo}>
+            <Text style={styles.logoTexto}>
+              RM
+            </Text>
+          </View>
+
+          <View style={styles.titulos}>
+            <Text style={styles.titulo}>
+              Real Madrid
+            </Text>
+
+            <Text style={styles.subtitulo}>
+              Club de Fútbol
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.linha} />
+
+        <Text style={styles.linkClube}>
+          Conheça a história do clube
+        </Text>
+
+      </TouchableOpacity>
+
+
+      {/* CABEÇALHO DOS JOGADORES */}
+
+      <View style={styles.secao}>
+
+        <Text style={styles.tituloSecao}>
+          Jogadores
+        </Text>
+
+        <Text style={styles.descricao}>
+          Selecione um jogador para consultar sua página na Wikipédia.
+        </Text>
+
+      </View>
+
+
+      {/* LISTA DE JOGADORES */}
+
+      <FlatList
+        data={jogadores}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.lista}
+
+        renderItem={({ item }) => (
+
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => abrirJogador(item.wikipedia)}
+            activeOpacity={0.75}
+          >
+
+            {/* NÚMERO */}
+
+            <View style={styles.numero}>
+              <Text style={styles.numeroTexto}>
+                {item.numero}
+              </Text>
+            </View>
+
+
+            {/* INFORMAÇÕES */}
+
+            <View style={styles.informacoes}>
+
+              <Text style={styles.nome}>
+                {item.nome}
+              </Text>
+
+              <Text style={styles.posicao}>
+                {item.posicao}
+              </Text>
+
+            </View>
+
+
+            {/* INDICADOR */}
+
+            <View style={styles.indicador}>
+              <Text style={styles.seta}>
+                ›
+              </Text>
+            </View>
+
+          </TouchableOpacity>
+
+        )}
+      />
+
+    </SafeAreaView>
+  );
+}
+
+
+const styles = StyleSheet.create({
+
+  /* =========================================
+     TELA PRINCIPAL
+  ========================================= */
+
+  container: {
+    flex: 1,
+    backgroundColor: '#F7F7F7',
+    paddingHorizontal: 18
+  },
+
+
+  /* =========================================
+     CABEÇALHO
+  ========================================= */
+
+  cabecalho: {
+    backgroundColor: '#FFFFFF',
+    marginTop: 12,
+    marginBottom: 25,
+    padding: 20,
+    borderRadius: 18,
+
+    borderWidth: 1,
+    borderColor: '#E5E5E5',
+
+    elevation: 4,
+
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+
+    shadowOffset: {
+      width: 0,
+      height: 3
+    }
+  },
+
+
+  linhaSuperior: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+
+
+  /* =========================================
+     LOGO
+  ========================================= */
+
+  logo: {
+    width: 58,
+    height: 58,
+    borderRadius: 29,
+
+    backgroundColor: '#071A3D',
+
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    marginRight: 15
+  },
+
+
+  logoTexto: {
+    color: '#D4AF37',
+    fontSize: 19,
+    fontWeight: 'bold',
+    letterSpacing: 1
+  },
+
+
+  /* =========================================
+     TÍTULO
+  ========================================= */
+
+  titulos: {
+    flex: 1
+  },
+
+
+  titulo: {
+    fontSize: 27,
+    fontWeight: '700',
+    color: '#071A3D'
+  },
+
+
+  subtitulo: {
+    fontSize: 17,
+    color: '#666666',
+    marginTop: 2
+  },
+
+
+  linha: {
+    height: 1,
+    backgroundColor: '#E6E6E6',
+    marginTop: 18,
+    marginBottom: 12
+  },
+
+
+  linkClube: {
+    textAlign: 'center',
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#8B6F20'
+  },
+
+
+  /* =========================================
+     SEÇÃO JOGADORES
+  ========================================= */
+
+  secao: {
+    marginBottom: 14
+  },
+
+
+  tituloSecao: {
+    fontSize: 25,
+    fontWeight: '700',
+    color: '#071A3D'
+  },
+
+
+  descricao: {
+    fontSize: 14,
+    color: '#777777',
+    marginTop: 5,
+    lineHeight: 20
+  },
+
+
+  /* =========================================
+     LISTA
+  ========================================= */
+
+  lista: {
+    paddingBottom: 30
+  },
+
+
+  /* =========================================
+     CARD DO JOGADOR
+  ========================================= */
+
+  card: {
+    backgroundColor: '#FFFFFF',
+
+    minHeight: 78,
+
+    borderRadius: 14,
+
+    marginBottom: 11,
+
+    paddingHorizontal: 15,
+
+    flexDirection: 'row',
+
+    alignItems: 'center',
+
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+
+    elevation: 2,
+
+    shadowColor: '#000',
+    shadowOpacity: 0.06,
+    shadowRadius: 5,
+
+    shadowOffset: {
+      width: 0,
+      height: 2
+    }
+  },
+
+
+  /* =========================================
+     NÚMERO
+  ========================================= */
+
+  numero: {
+    width: 48,
+    height: 48,
+
+    borderRadius: 24,
+
+    backgroundColor: '#071A3D',
+
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    marginRight: 14
+  },
+
+
+  numeroTexto: {
+    color: '#D4AF37',
+
+    fontSize: 17,
+
+    fontWeight: '700'
+  },
+
+
+  /* =========================================
+     INFORMAÇÕES
+  ========================================= */
+
+  informacoes: {
+    flex: 1
+  },
+
+
+  nome: {
+    fontSize: 17,
+
+    fontWeight: '700',
+
+    color: '#222222'
+  },
+
+
+  posicao: {
+    fontSize: 14,
+
+    color: '#777777',
+
+    marginTop: 4
+  },
+
+
+  /* =========================================
+     INDICADOR
+  ========================================= */
+
+  indicador: {
+    width: 32,
+    height: 32,
+
+    borderRadius: 16,
+
+    backgroundColor: '#F2F2F2',
+
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+
+  seta: {
+    fontSize: 25,
+
+    color: '#071A3D',
+
+    marginTop: -2
+  }
+
+});
